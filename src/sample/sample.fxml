@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="238.0" prefWidth="269.0" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <JFXButton layoutX="98.0" layoutY="106.0" onAction="#showTime" text="Show Time"/>
+    <JFXTextField fx:id="txtTime" layoutX="67.0" layoutY="150.0"/>
+</AnchorPane>
