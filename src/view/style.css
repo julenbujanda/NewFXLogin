@@ -14,3 +14,8 @@
 Label, JFXButton, JFXTextField {
     -fx-font-family: 'Montserrat', sans-serif;
 }
+
+#loginBox {
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-color: #fff;
+}
