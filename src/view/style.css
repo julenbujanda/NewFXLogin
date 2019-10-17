@@ -19,3 +19,7 @@ Label, JFXButton, JFXTextField {
     -fx-background-radius: 10 10 10 10;
     -fx-background-color: #fff;
 }
+
+JFXButton {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
