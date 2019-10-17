@@ -1,0 +1,16 @@
+.orbitron {
+    -fx-font-family: 'Orbitron', sans-serif;
+    -fx-font-weight: bold;
+}
+
+#welcomeBack {
+    -fx-font-size: 1.5em;
+}
+
+#title {
+    -fx-font-size: 2em;
+}
+
+Label, JFXButton, JFXTextField {
+    -fx-font-family: 'Montserrat', sans-serif;
+}
