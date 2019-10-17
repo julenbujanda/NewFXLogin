@@ -4,15 +4,18 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
     <GridPane layoutX="88.0" layoutY="149.0" style="-fx-background-color: #673AB7;" AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="100.0"/>
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
@@ -25,23 +28,33 @@
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
             </padding>
-            <Label text="Welcome Back"/>
+            <Label id="welcomeBack" styleClass="orbitron" text="Welcome Back"/>
             <Label text="Sign in to continue"/>
             <JFXTextField labelFloat="true" promptText="User">
                 <padding>
                     <Insets left="15.0" right="15.0"/>
                 </padding>
+                <VBox.margin>
+                    <Insets top="25.0"/>
+                </VBox.margin>
             </JFXTextField>
             <JFXTextField labelFloat="true" promptText="Password">
-                <VBox.margin>
+                <padding>
                     <Insets left="15.0" right="15.0"/>
+                </padding>
+                <VBox.margin>
+                    <Insets top="15.0"/>
                 </VBox.margin>
             </JFXTextField>
             <HBox alignment="CENTER_RIGHT">
                 <padding>
                     <Insets right="15.0"/>
                 </padding>
-                <Label text="Forgot the password?"/>
+                <Label text="Forgot the password?">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
             </HBox>
             <HBox>
                 <JFXButton maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-background-color: #673AB7;"
@@ -56,9 +69,19 @@
             </HBox>
             <HBox alignment="CENTER" spacing="10.0">
                 <Label text="New user?"/>
-                <Label text="Sign Up" textFill="#673ab7"/>
+                <Label text="Sign Up" textFill="#673ab7">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
             </HBox>
         </VBox>
-        <Label text="Welcome"/>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="7.5">
+            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../img/download.png"/>
+            </ImageView>
+            <Label text="Welcome To" textFill="WHITE"/>
+            <Label id="title" styleClass="orbitron" text="ZAD" textFill="WHITE"/>
+        </VBox>
     </GridPane>
 </AnchorPane>
