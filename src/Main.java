@@ -15,9 +15,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
+        // Set minimum window size
         primaryStage.setMinWidth(700);
         primaryStage.setMinHeight(500);
+        // Add app icon
         primaryStage.getIcons().add(new Image("img/download.png"));
+        // Load fonts
         Font.loadFont(Main.class.getResource("font/Montserrat-Regular.ttf").toExternalForm(), 20);
         Font.loadFont(Main.class.getResource("font/Montserrat-Bold.ttf").toExternalForm(), 20);
         Font.loadFont(Main.class.getResource("font/Orbitron-Bold.ttf").toExternalForm(), 20);
