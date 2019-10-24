@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.UsersModel;
 
 public class Main extends Application {
 
@@ -15,7 +14,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new UsersModel();
         Parent root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
         // Set minimum window size
         primaryStage.setMinWidth(700);
