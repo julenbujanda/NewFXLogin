@@ -30,7 +30,7 @@
             </padding>
             <Label id="welcomeBack" styleClass="orbitron" text="Welcome Back"/>
             <Label text="Sign in to continue"/>
-            <JFXTextField labelFloat="true" promptText="User">
+            <JFXTextField fx:id="txtUser" labelFloat="true" promptText="User">
                 <padding>
                     <Insets left="15.0" right="15.0"/>
                 </padding>
@@ -38,7 +38,7 @@
                     <Insets top="25.0"/>
                 </VBox.margin>
             </JFXTextField>
-            <JFXTextField labelFloat="true" promptText="Password">
+            <JFXTextField fx:id="txtPassword" labelFloat="true" promptText="Password">
                 <padding>
                     <Insets left="15.0" right="15.0"/>
                 </padding>
