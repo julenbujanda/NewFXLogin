@@ -2,6 +2,7 @@ package model;
 
 import com.google.gson.Gson;
 import data.User;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,7 +27,8 @@ public class UsersModel {
     }
 
     public boolean checkPassword(String userId, String password) {
-        return users.get(userId).getPassword().equals(password);
+        String hashedPassword = DigestUtils.sha256Hex(password);
+        return users.get(userId).getPassword().equals(hashedPassword);
     }
 
 }
