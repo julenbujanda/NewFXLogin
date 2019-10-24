@@ -3,25 +3,30 @@ package model;
 import com.google.gson.Gson;
 import data.User;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
 
 public class UsersModel {
 
     private Gson gson;
-    private User[] users;
+    private HashMap<String, User> users;
 
     public UsersModel() {
+        users = new HashMap<>();
         gson = new Gson();
         try {
-            users = gson.fromJson(new FileReader("src/data/users.json"), User[].class);
-            for (var user : users) {
-                System.out.println(user);
+            User[] userArray = gson.fromJson(new FileReader("src/data/users.json"), User[].class);
+            for (var user : userArray) {
+                users.put(user.getId(), user);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean checkPassword(String userId, String password) {
+        return users.get(userId).getPassword().equals(password);
     }
 
 }
