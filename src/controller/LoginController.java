@@ -2,11 +2,16 @@ package controller;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import data.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Region;
 import model.UsersModel;
+
+import java.security.SecureRandom;
+import java.util.Base64;
+import java.util.prefs.Preferences;
 
 public class LoginController {
 
@@ -18,16 +23,25 @@ public class LoginController {
     @FXML
     private JFXPasswordField txtPassword;
 
+    private Preferences preferences;
+
     public LoginController() {
         usersModel = new UsersModel();
+        preferences = Preferences.userRoot();
+        String userId = preferences.get("userId", "");
+        String loginToken = preferences.get("loginToken", "");
+        if (!loginToken.equals("") && !userId.equals("")) {
+
+        }
     }
 
     @FXML
     public void login() {
         String user = txtUser.getText();
         String password = txtPassword.getText();
-        if (usersModel.checkPassword(user, password)) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Succesful login", ButtonType.OK);
+        User loginUser = usersModel.checkPassword(user, password);
+        if (loginUser != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Successful login", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         } else {
@@ -35,6 +49,19 @@ public class LoginController {
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
+        preferences.put("a", "b");
+    }
+
+    private void saveLogin(User user) {
+        // Creates token
+        SecureRandom secureRandom = new SecureRandom(); //threadsafe
+        Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
+        byte[] randomBytes = new byte[24];
+        secureRandom.nextBytes(randomBytes);
+        String token = base64Encoder.encodeToString(randomBytes);
+        usersModel.updateUserToken(user, token);
+        preferences.put("userId", user.getId());
+        preferences.put("loginToken", token);
     }
 
 }
