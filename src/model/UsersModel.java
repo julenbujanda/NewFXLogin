@@ -48,4 +48,8 @@ public class UsersModel {
         return users.get(userId).getPassword().equals(hashedPassword) ? users.get(userId) : null;
     }
 
+    public User checkToken(String userId, String token) {
+        return users.get(userId).getLoginToken().equals(token) ? users.get(userId) : null;
+    }
+
 }

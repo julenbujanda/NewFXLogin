@@ -31,25 +31,30 @@ public class LoginController {
         String userId = preferences.get("userId", "");
         String loginToken = preferences.get("loginToken", "");
         if (!loginToken.equals("") && !userId.equals("")) {
-
+            User loginUser = usersModel.checkToken(userId, loginToken);
+            login(loginUser);
         }
     }
 
     @FXML
-    public void login() {
+    public void passwordLogin() {
         String user = txtUser.getText();
         String password = txtPassword.getText();
         User loginUser = usersModel.checkPassword(user, password);
-        if (loginUser != null) {
+        login(loginUser);
+    }
+
+    private void login(User user) {
+        if (user != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Successful login", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
+            saveLogin(user);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect credentials", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
-        preferences.put("a", "b");
     }
 
     private void saveLogin(User user) {

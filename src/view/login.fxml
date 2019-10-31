@@ -58,7 +58,7 @@
                 </Label>
             </HBox>
             <HBox>
-                <JFXButton onAction="#login" maxWidth="1.7976931348623157E308" prefHeight="35.0"
+                <JFXButton  onAction="#passwordLogin" maxWidth="1.7976931348623157E308" prefHeight="35.0"
                            style="-fx-background-color: #673AB7;"
                            text="Login" textFill="WHITE" HBox.hgrow="ALWAYS">
                     <font>
